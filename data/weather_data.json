@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": -49.0661,
+        "lat": -26.9194
+    },
+    "weather": [
+        {
+            "id": 802,
+            "main": "Clouds",
+            "description": "nuvens dispersas",
+            "icon": "03n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 17.83,
+        "feels_like": 18.28,
+        "temp_min": 17.83,
+        "temp_max": 17.83,
+        "pressure": 1020,
+        "humidity": 100,
+        "sea_level": 1020,
+        "grnd_level": 995
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 0.47,
+        "deg": 84,
+        "gust": 0.31
+    },
+    "clouds": {
+        "all": 37
+    },
+    "dt": 1780879935,
+    "sys": {
+        "type": 2,
+        "id": 2109788,
+        "country": "BR",
+        "sunrise": 1780826420,
+        "sunset": 1780864212
+    },
+    "timezone": -10800,
+    "id": 3469968,
+    "name": "Blumenau",
+    "cod": 200
+}
