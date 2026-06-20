@@ -109,5 +109,3 @@ def data_transofrmations():
     df = normalize_datetime_columns(df, columns_to_normalize_datetime)
     logging.info(f"\n* Transformações concluídas\n")
     return df
-
-    ##### MOSTRANDO PARA O LUCAS
