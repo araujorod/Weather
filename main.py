@@ -1,13 +1,13 @@
-# from src.extract_data import extract_weather_data
+from src.extract_data import extract_weather_data
+from src.load_data import load_weather_data
+from src.transform_data import data_transformations
+
 # from src.extract_data_2 import extract_weather_data
-# from src.load_data import load_weather_data
-# from src.transform_data import data_transformations
 
-from extract_data import extract_weather_data
-
-# from extract_data_2 import extract_weather_data
-from load_data import load_weather_data
-from transform_data import data_transformations
+# from extract_data import extract_weather_data
+# # from extract_data_2 import extract_weather_data
+# from load_data import load_weather_data
+# from transform_data import data_transformations
 
 import os
 from pathlib import Path
@@ -25,3 +25,29 @@ load_dotenv(env_path)
 API_KEY = os.getenv("api_key")
 
 url = f"https://api.openweathermap.org/data/2.5/weather?q=Sao Paulo,BR&units=metric&appid={API_KEY}"
+table_name = "weather_db"
+
+
+def pipeline():
+    try:
+        logging.info("ETAPA 1: EXTRACT")
+        extract_weather_data(url)
+
+        logging.info("ETAPA 2: TRANSFORM")
+        df = data_transformations()
+
+        logging.info("ETAPA 3: LOAD")
+        load_weather_data(table_name, df)
+
+        print("\n" + "=" * 60)
+        print("✅ Pipeline concluído com sucesso!")
+        print("=" * 60)
+
+    except Exception as e:
+        logging.error(f"❌ ERRO no Pipeline: {e}")
+        import traceback
+
+        traceback.print_exc()
+
+
+pipeline()

@@ -5,12 +5,12 @@ import json
 import logging
 
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(massege)s"
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 
 path_name = Path(__file__).parent.parent / "data" / "weather_data.json"
-columns_names_to_drop = ["weather", "weather_icon", "sys.tyoe"]
+columns_names_to_drop = ["weather", "weather_icon", "sys.type"]
 columns_names_to_rename = {
     "base": "base",
     "visibility": "visibility",
@@ -70,7 +70,7 @@ def normalize_weather_columns(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     df = pd.concat([df, df_weather], axis=1)
-    logging.info(f"\n* Coluna 'weather' normalizada - {len(df.colunar)} coluna(s)")
+    logging.info(f"\n* Coluna 'weather' normalizada - {len(df.columns)} coluna(s)")
     return df
 
 
@@ -94,13 +94,13 @@ def normalize_datetime_columns(
     logging.info(f"\n* Convertendo colunas para datetime: {columns_names}")
     for name in columns_names:
         df[name] = pd.to_datetime(df[name], unit="s", utc=True).dt.tz_convert(
-            "Amercia/Sao_Paulo"
+            "America/Sao_Paulo"
         )
     logging.info(f"\n* Colunas convertidas para datetime\n")
     return df
 
 
-def data_transofrmations():
+def data_transformations():
     print("\ Iniciando transformações")
     df = create_dataframe(path_name)
     df = normalize_weather_columns(df)

@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 import logging
 
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(massage)s"
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 env_path = Path(__file__).resolve().parent.parent / "config" / ".env"
@@ -23,7 +23,7 @@ host = "localhost"
 
 
 def get_engine():
-    logging.info(f"Conectando em {host:3306/{database}}")
+    logging.info(f"Conectando em {host}:3306/{database}")
     return create_engine(
         f"mysql+pymysql://{user}:{quote_plus(password)}@{host}:3306/{database}"
     )
