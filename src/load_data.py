@@ -32,9 +32,10 @@ def get_engine():
 engine = get_engine()
 
 
-def load_data(table_name: str, df):
+def load_weather_data(table_name: str, df):
     df.to_sql(name=table_name, con=engine, if_exists="append", index=False)
 
     logging.info(f"Dados carregados com seucesso!\n")
 
     df_check = pd.read_sql(f"SELECT * FROM {table_name}", con=engine)
+    logging.info(f"Total de registros na tabela: {len(df_check)}\n")
