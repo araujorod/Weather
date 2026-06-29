@@ -1,0 +1,13 @@
+api_key = "317449a49e435741bfa7da4bfc87e07c"
+
+citys = ["Rio de Janeiro","Sao Paulo","Belo Horizonte","Brasilia","Recife","Fortaleza","Salvador","Manaus","Belém","Porto Alegre","Florianopolis","Blumenau","Curitiba","Joinville", "Contagem", "Uberaba"]
+
+count = 0
+
+for city in citys:
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
+    print(url)
+    count += 1
+
+print(count)
+print (f"Fim do loop, {count} cidades pesquisadas.")
